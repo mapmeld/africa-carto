@@ -46,7 +46,7 @@ html, body, svg {
 
 Here's what it looks like:
 
-<img src="//mapmeld.github.io/africa-carto/maps/progress/political-projection.png"/>
+<img src="http://mapmeld.github.io/africa-carto/maps/progress/political-projection.png"/>
 
 I chose a Cylindrial Equal-Area Projection (a generic version of Gall-Peters from the West Wing)
 because it shows relative size of countries. There are other reasons to object to this projection,
@@ -69,4 +69,4 @@ It's tempting to have the borders be 1 pixel solid black, but it looks weird on 
 
 Then I realign the initial projection so that it's centered and zoomed on Africa. Here's what we get:
 
-<img src="//mapmeld.github.io/africa-carto/maps/progress/political-cropped.png"/>
+<img src="http://mapmeld.github.io/africa-carto/maps/progress/political-cropped.png"/>
