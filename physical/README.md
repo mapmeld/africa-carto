@@ -46,5 +46,6 @@ setTimeout(function() {
 }, 250);
 ```
 
-I tried to use MapBoxGL styling to make the rivers visible on the continent-level zoom, but the features stay small, and on OpenStreetMap they are tagged with a mix of coastline, riverbank, or natural=water tags. I go to Overpass API and extract waterway=river features from Madagascar. This dataset proves too large even on Madagascar, so I look
-up the lile
+First, I tried to use MapBoxGL styling to make the rivers visible on the continent-level zoom, but the features stay small. On OpenStreetMap they are tagged with a mix of coastline, riverbank, or natural=water tags.
+
+I go to Overpass API and extract waterway=river features. This dataset proves too large even when I limit the search to Madagascar, so I look up the names of individual rivers and download them.
