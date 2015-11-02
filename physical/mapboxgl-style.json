@@ -1,0 +1,40 @@
+{
+  "version": 8,
+  "name": "Physical Map Africa",
+  "sources": {
+    "composite": {
+      "url": "mapbox://mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6",
+      "type": "vector"
+    }
+  },
+  "sprite": "mapbox://sprites/mapbox/streets-v8",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "layers": [
+    {"id":"background","type":"background","layout":{"visibility":"visible"},"paint":{"background-color":"#ede9d9"}},
+    {"id":"landcover_crop","type":"fill","source":"composite","source-layer":"landcover","filter":["==","class","crop"],"maxzoom":14,"layout":{"visibility":"visible"},"paint":{"fill-color":"#ddecb1","fill-opacity":{"base":1.5,"stops":[[2,0.3],[14,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855831248.8289"}},
+    {"id":"landcover_scrub","type":"fill","source":"composite","source-layer":"landcover","filter":["==","class","scrub"],"maxzoom":14,"layout":{"visibility":"visible"},"paint":{"fill-color":"#fff","fill-opacity":{"base":1.5,"stops":[[2,0.3],[14,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855831248.8289"}},
+    {"id":"scrub","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","scrub"],"minzoom":9,"layout":{"visibility":"visible"},"paint":{"fill-color":"#fff","fill-opacity":{"base":1,"stops":[[9,0],[16,0.2]]}}},
+    {"id":"landcover_wood","type":"fill","source":"composite","source-layer":"landcover","filter":["==","class","wood"],"maxzoom":14,"layout":{"visibility":"visible"},"paint":{"fill-color":"rgb(60,111,49)","fill-opacity":{"base":1.5,"stops":[[2,0.3],[14,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855831248.8289"}},
+    {"id":"wood","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","wood"],"minzoom":6,"layout":{"visibility":"visible"},"paint":{"fill-color":"rgb(60,111,49)","fill-opacity":{"base":1,"stops":[[6,0],[16,0.5]]}}},
+    {"id":"landcover_grass","type":"fill","source":"composite","source-layer":"landcover","filter":["==","class","grass"],"maxzoom":14,"layout":{"visibility":"visible"},"paint":{"fill-color":"rgb(92,148,56)","fill-opacity":{"base":1.5,"stops":[[2,0.3],[14,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855831248.8289"}},
+    {"id":"grass","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","grass"],"minzoom":9,"layout":{"visibility":"visible"},"paint":{"fill-color":"rgb(92,148,56)","fill-opacity":{"base":1,"stops":[[9,0],[16,0.4]]}}},
+    {"id":"landcover_snow","type":"fill","source":"composite","source-layer":"landcover","filter":["==","class","snow"],"layout":{"visibility":"visible"},"paint":{"fill-color":"#fff","fill-opacity":0.2,"fill-antialias":false},"metadata":{"mapbox:group":"1444855831248.8289"}},
+    {"id":"glaciers","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","glacier"],"minzoom":9,"layout":{"visibility":"visible"},"paint":{"fill-color":"#dcedf9","fill-opacity":{"base":1,"stops":[[9,0],[10,0.25]]}}},
+    {"id":"pitch","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","pitch"],"layout":{"visibility":"visible"},"paint":{"fill-color":"#c3e194"}},
+    {"id":"pitch-line","type":"line","source":"composite","source-layer":"landuse","filter":["==","class","pitch"],"minzoom":15,"layout":{},"paint":{"line-color":"#e1f2c6"}},
+    {"id":"sand","type":"fill","source":"composite","source-layer":"landuse","filter":["==","class","sand"],"layout":{"visibility":"visible"},"paint":{"fill-color":"#ededcf"}},
+    {"id":"hillshade_highlight_bright","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",94],"maxzoom":18,"layout":{"visibility":"visible"},"paint":{"fill-color":"#fff","fill-opacity":{"stops":[[15,0.12],[18,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"hillshade_highlight_med","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",90],"layout":{"visibility":"visible"},"paint":{"fill-color":"#fff","fill-opacity":{"stops":[[15,0.12],[18,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"hillshade_shadow_faint","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",89],"maxzoom":17,"layout":{"visibility":"visible"},"paint":{"fill-color":"#5a5517","fill-opacity":{"stops":[[15,0.05],[17,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"hillshade_shadow_med","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",78],"layout":{"visibility":"visible"},"paint":{"fill-color":"#5a5517","fill-opacity":{"stops":[[15,0.05],[17,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"hillshade_shadow_dark","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",67],"layout":{"visibility":"visible"},"paint":{"fill-color":"#5a5517","fill-opacity":{"stops":[[15,0.06],[17,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"hillshade_shadow_extreme","type":"fill","source":"composite","source-layer":"hillshade","filter":["==","level",56],"maxzoom":17,"layout":{"visibility":"visible"},"paint":{"fill-color":"#5a5517","fill-opacity":{"stops":[[15,0.06],[17,0]]},"fill-antialias":false},"metadata":{"mapbox:group":"1444855815295.714"}},
+    {"id":"waterway-river-canal","type":"line","source":"composite","source-layer":"waterway","filter":["any",["==","class","river"],["==","class","canal"]],"minzoom":8,"layout":{"visibility":"visible","line-cap":{"base":1,"stops":[[0,"butt"],[11,"round"]]},"line-join":"round"},"paint":{"line-color":"#8ccbf7","line-width":{"base":1.3,"stops":[[8.5,0.1],[20,8]]},"line-opacity":{"base":1,"stops":[[8,0],[8.5,1]]}}},
+    {"id":"waterway-small","type":"line","source":"composite","source-layer":"waterway","filter":["all",["!=","class","river"],["!=","class","canal"]],"minzoom":13,"layout":{"visibility":"visible","line-join":"round","line-cap":"round"},"paint":{"line-color":"#8ccbf7","line-width":{"base":1.35,"stops":[[13.5,0.1],[20,3]]},"line-opacity":{"base":1,"stops":[[13,0],[13.5,1]]}}},
+    {"id":"water","type":"fill","source":"composite","source-layer":"water","layout":{"visibility":"visible"},"paint":{"fill-color":"#8ccbf7"}},
+    {"id":"landuse-overlay","type":"fill","source":"composite","source-layer":"landuse_overlay","layout":{"visibility":"visible"},"paint":{"fill-color":"#9DD3D8","fill-opacity":{"base":1,"stops":[[10,0.25],[10.5,0.15]]}},"metadata":{"mapbox:group":"1444934749452.0452"}},
+    {"id":"landuse-overlay-pattern","ref":"landuse-overlay","paint":{"fill-color":"#9DD3D8","fill-opacity":{"base":1,"stops":[[10,0],[10.5,1]]},"fill-pattern":"marsh-16","fill-translate-anchor":"viewport"},"metadata":{"mapbox:group":"1444934749452.0452"}},
+    {"id":"contour","type":"line","source":"composite","source-layer":"contour","filter":["!=","index",5],"minzoom":14,"layout":{"visibility":"visible"},"paint":{"line-opacity":0.07,"line-color":"#66601a"},"metadata":{"mapbox:group":"1444933837268.9458"}},
+    {"id":"contour-index","type":"line","source":"composite","source-layer":"contour","filter":["==","index",5],"minzoom":14,"layout":{"visibility":"visible"},"paint":{"line-opacity":0.12,"line-color":"#66601a"},"metadata":{"mapbox:group":"1444933837268.9458"}}
+  ]
+}
