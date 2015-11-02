@@ -5,20 +5,48 @@ few Africa maps. I wondered, how might the maps be different if they used a
 non-Mercator projection. Would the difference be noticeable? Where could the
 curators go to quickly create such a map?
 
-You can use this repo to create your own diverse Africa maps, or as a tutorial
+You can use this repo to create your own cartography, or as a tutorial
 in cartography, D3, and MapBoxGL.
 
 ## The Maps
 
-<img src="http://mapmeld.github.io/africa-carto/maps/1.jpg"/>
-<img src="http://mapmeld.github.io/africa-carto/maps/2.jpg"/>
-<img src="http://mapmeld.github.io/africa-carto/maps/3.jpg"/>
+### Physical and Kingdom Map
 
-## Built with
+<img src="//mapmeld.github.io/africa-carto/maps/2.jpg"/>
 
-* d3 / d3.geo
-* MapBoxGL
-* GitHub Pages
+<a href="https://github.com/mapmeld/africa-carto/">Tutorial</a>
+
+Includes
+
+* OpenStreetMap
+* MapBoxGL (including terrain)
+* QGIS
+* GeoJSON / TopoJSON
+* Overpass API
+* Natural Earth Data
+
+### Modern Political Map
+
+<img src="//mapmeld.github.io/africa-carto/maps/3.jpg" style="float:left;"/>
+
+Includes
+
+* OpenStreetMap
+* D3 geo
+* Projections
+* GeoJSON / TopoJSON
+* Natural Earth Data
+
+### Colonial Map
+
+<img src="//mapmeld.github.io/africa-carto/maps/1.jpg" style="float:left;"/>
+
+Includes
+
+* OpenStreetMap
+* D3 geo
+* Projections
+* GeoJSON / TopoJSON
 
 ## Open Source License
 
