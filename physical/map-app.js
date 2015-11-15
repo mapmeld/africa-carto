@@ -37,7 +37,7 @@ setTimeout(function() {
       "id": "zimbabwe",
       "type": "line",
       "source": "kingdoms",
-      "filter": ['any', ['==', 'name', 'Zimbabwe Kingdom']]
+      "filter": ['any', ['==', 'name', 'Zimbabwe Kingdom']],
       "layout": {
         "visibility": "visible",
         "line-cap": {
