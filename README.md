@@ -16,7 +16,7 @@ in cartography, D3, and MapBoxGL.
 
 <img src="http://mapmeld.github.io/africa-carto/maps/2.jpg"/>
 
-<a href="https://github.com/mapmeld/africa-carto/">Tutorial</a>
+<a href="https://github.com/mapmeld/africa-carto/tree/gh-pages/physical">Tutorial</a>
 
 Includes
 
@@ -29,7 +29,9 @@ Includes
 
 ### Modern Political Map
 
-<img src="http://mapmeld.github.io/africa-carto/maps/3.jpg" style="float:left;"/>
+<img src="http://mapmeld.github.io/africa-carto/maps/3.jpg"/>
+
+<a href="https://github.com/mapmeld/africa-carto/tree/gh-pages/modern">Tutorial</a>
 
 Includes
 
@@ -41,7 +43,9 @@ Includes
 
 ### Colonial Map
 
-<img src="http://mapmeld.github.io/africa-carto/maps/1.jpg" style="float:left;"/>
+<img src="http://mapmeld.github.io/africa-carto/maps/1.jpg"/>
+
+<a href="https://github.com/mapmeld/africa-carto/tree/gh-pages/colonial">Tutorial</a>
 
 Includes
 

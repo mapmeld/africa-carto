@@ -1,6 +1,8 @@
 ## africa-carto tutorial
 
-### Physical and Kingdom Map
+## Physical and Kingdom Map
+
+### Terrain Basemap
 
 To include the physical/terrain basemap, I'll use the MapBoxGL JavaScript API. According to
 <a href="https://github.com/mapbox/mapbox-gl-js/issues/1466">this ticket</a>, I need to keep using the Web Mercator projection for now.
@@ -20,13 +22,16 @@ var map = new mapboxgl.Map({
 });
 ```
 
-Then in the same folder, I created mapboxgl-style.json using the sources and layers from <a href="https://api.mapbox.com/styles/v1/mapbox/streets-v8?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA">MapBox Streets v8</a>. Then I can cut out layers and make necessary style changes. I do need to keep the mapbox.mapbox-streets-v6 source to make the oceans fill in. I don't fully understand this part.
+Then in the same folder, I created mapboxgl-style.json using the sources and layers from <a href="https://api.mapbox.com/styles/v1/mapbox/streets-v8?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA">MapBox Streets v8</a>. Then I can cut out layers and make necessary style changes. I do need to keep the mapbox.mapbox-streets-v6 source to make the oceans fill in. I don't fully understand why, but I do like
+having oceans, so it stays in.
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/physical-colored.png"/>
 
 The natural boundaries shown come from OpenStreetMap/MapBox and differ from the Brooklyn Museum, but they look good on their own. The areas and hillshades sharpen when you zoom in.
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/physical-zoom.png"/>
+
+### Focus on Africa
 
 To cover up the other continents, I downloaded data from <a href="http://www.naturalearthdata.com/">Natural Earth</a>. In QGIS, I was able to divide one multipolygon from the data into many smaller polygons, and then split Africa (including the Sinai Peninsula) off from the rest of the earth. Then I ran simplify until my output GeoJSON was about 1 MB.
 
@@ -45,6 +50,8 @@ setTimeout(function() {
   });
 }, 250);
 ```
+
+### Displaying Rivers
 
 First, I tried to use MapBoxGL styling to make the rivers visible on the continent-level zoom, but the features stay small. On OpenStreetMap they are tagged with a mix of coastline, riverbank, or natural=water tags.
 
@@ -71,3 +78,5 @@ out;
 ```
 
 Once you have the right shape, hit Export in the top menu and save as GeoJSON.
+
+### Mapping Kingdoms

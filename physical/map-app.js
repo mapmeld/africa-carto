@@ -28,10 +28,44 @@ setTimeout(function() {
     });
   });
 
+  // load rivers from Overpass API data
+  $.getJSON("data/rivers.geojson?v=2", function (gj) {
+
+    var rivers = new mapboxgl.GeoJSONSource({data: gj});
+    map.addSource('rivers', rivers);
+
+    console.log(gj.features);
+
+    map.addLayer({
+      "id": "rivers",
+      "type": "line",
+      "source": "rivers",
+      "paint": {
+        "line-color": "#6cabc7",
+        "line-width": 2
+      }
+    });
+  });
+
   // load African kingdoms
-  $.getJSON("data/kingdoms.geojson", function (gj) {
+  $.getJSON("data/kingdoms.geojson?v=3", function (gj) {
     var kingdoms = new mapboxgl.GeoJSONSource({data: gj});
     map.addSource('kingdoms', kingdoms);
+
+    map.addLayer({
+      "id": "kongo",
+      "type": "line",
+      "source": "kingdoms",
+      "filter": ['any', ['==', 'name', 'Kongo Kingdom']],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint":{
+        "line-color":"#000",
+        "line-width":4,
+        "line-dasharray": [2, 1]
+      }
+    });
 
     map.addLayer({
       "id": "zimbabwe",
@@ -39,19 +73,12 @@ setTimeout(function() {
       "source": "kingdoms",
       "filter": ['any', ['==', 'name', 'Zimbabwe Kingdom']],
       "layout": {
-        "visibility": "visible",
-        "line-cap": {
-          "base":1,"stops":[[0,"butt"],[11,"round"]]
-        },
-        "line-join":"round"
+        "visibility": "visible"
       },
       "paint":{
-        "line-color":"#8ccbf7","line-width":{
-          "base":1.3,"stops":[[8.5,0.1],[20,8]]
-        },
-        "line-opacity":{
-          "base":1,"stops":[[8,0],[8.5,1]]
-        }
+        "line-color":"#5c9bc7",
+        "line-width":4,
+        "line-dasharray": [2, 1]
       }
     });
   });

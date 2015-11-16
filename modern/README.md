@@ -1,6 +1,8 @@
 ## africa-carto tutorial
 
-### Modern Political Map
+## Modern Political Map
+
+### Creating a D3 Map
 
 I want to display the modern-day map of Africa in lots of different projections, so the best
 option today is to use D3.
@@ -52,8 +54,10 @@ I chose a Cylindrial Equal-Area Projection (a generic version of Gall-Peters fro
 because it shows relative size of countries. There are other reasons to object to this projection,
 but it ought to give us a clear answer on what differently-projected museum maps would look like.
 
-Africa will be loaded from <a href="https://github.com/johan/world.geo.json/">world.geo.json</a>, an open source project from Johan. I skipped QGIS and just went line-by-line through the GeoJSON file until only African countries were there. Worth noting here that Sao Tome and Principe, the Seychelles, and a few other islands get left out.
-They are labelled on the Brooklyn Museum map, so I'll bring them in later.
+### Adding Africa
+
+African countries will be re-added from <a href="https://github.com/johan/world.geo.json/">world.geo.json</a>, an open source project from Johan. I skipped QGIS and removed countries line-by-line from the GeoJSON file until only African countries were there. Worth noting here that Sao Tome and Principe, the Seychelles, and a few other islands get left out.
+They are labelled on the Brooklyn Museum map, so I'll need to bring them in later.
 
 Once I've loaded that in, I'll use a new CSS class to style it:
 
@@ -70,3 +74,7 @@ It's tempting to have the borders be 1 pixel solid black, but it looks weird on 
 Then I realign the initial projection so that it's centered and zoomed on Africa. Here's what we get:
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/political-cropped.png"/>
+
+### Labeling Countries
+
+### Adding Islands
