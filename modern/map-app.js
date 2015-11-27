@@ -38,8 +38,18 @@ d3.json("data/africa.topojson", function(error, africa) {
   svg.selectAll(".subunit-label")
       .data(topojson.feature(africa, africa.objects.africa).features)
     .enter().append("text")
-      .attr("class", function(d) { return "subunit-label " + d.id; })
+      .attr("class", "subunit-label")
       .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
       .attr("dy", ".35em")
+      .attr("dx", function (d) {
+        switch (d.properties.name) {
+          case "Djibouti":
+            return "40px";
+          case "Eritrea":
+            return "20px";
+          case "Gambia":
+            return "-40px";
+        }
+      })
       .text(function(d) { return d.properties.name; });
 });

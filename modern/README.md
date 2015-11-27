@@ -2,6 +2,8 @@
 
 ## Modern Political Map
 
+<img src="http://mapmeld.github.io/africa-carto/maps/3.jpg"/>
+
 ### Creating a D3 Map
 
 I want to display the modern-day map of Africa in a different, so the best option today is to use D3.
@@ -94,7 +96,7 @@ The country name is in the GeoJSON "name" property, so I retrieve that in the an
 svg.selectAll(".subunit-label")
     .data(topojson.feature(africa, africa.objects.africa).features)
   .enter().append("text")
-    .attr("class", function(d) { return "subunit-label " + d.id; })
+    .attr("class", "subunit-label")
     .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
     .attr("dy", ".35em")
     .text(function(d) { return d.properties.name; });
@@ -114,5 +116,22 @@ Then the size, font, and capitalization of the labels is set using CSS:
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/political-labels.png"/>
 
+The labels are placed in the geographic center of the country, which isn't always the best location for it. Labeling is an
+exceedingly difficult thing for a human to do, and computers aren't especially good at it. Even if the labels were much
+smaller Ivory Coast, Ghana, Togo, and Benin are right next to each other. In the Brooklyn Museum map, most of West Africa's
+labels are moved into the ocean's negative space.
+
+We can set dx using a function to move individual labels. Here are two:
+
+```javascript
+.attr("dx", function (d) {
+  switch (d.properties.name) {
+    case "Djibouti":
+      return "40px";
+    case "Eritrea":
+      return "20px";
+  }
+})
+```
 
 ### Adding Islands
