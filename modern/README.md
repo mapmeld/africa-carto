@@ -77,12 +77,42 @@ Once I've loaded that in, I'll use a new CSS class to style it:
 }
 ```
 
-It's tempting to have the borders be black, but it looks weird on maps.
+It's tempting to have the borders be black, but a grey border (#888) looks better.
 
 Then I realign the initial projection so that it's centered and zoomed on Africa. Here's what we get:
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/political-cropped.png"/>
 
 ### Labeling Countries
+
+Now we need to add labels over the countries. Mike Bostock's <a href="http://bost.ocks.org/mike/map/">Let's Make a Map</a>
+is a good guide to adding labels. We re-add the countries but instead of using GeoJSON to make paths, we add an SVG text element.
+
+The country name is in the GeoJSON "name" property, so I retrieve that in the anonymous function passed to text()
+
+```javascript
+svg.selectAll(".subunit-label")
+    .data(topojson.feature(africa, africa.objects.africa).features)
+  .enter().append("text")
+    .attr("class", function(d) { return "subunit-label " + d.id; })
+    .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+    .attr("dy", ".35em")
+    .text(function(d) { return d.properties.name; });
+```
+
+Then the size, font, and capitalization of the labels is set using CSS:
+
+```css
+.subunit-label {
+  font-family: arial, sans-serif;
+  fill: #000;
+  font-size: 11px;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+```
+
+<img src="http://mapmeld.github.io/africa-carto/maps/progress/political-labels.png"/>
+
 
 ### Adding Islands

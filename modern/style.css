@@ -14,3 +14,11 @@ html, body, svg {
   stroke: #888;
   stroke-width: 1.5px;
 }
+
+.subunit-label {
+  font-family: arial, sans-serif;
+  fill: #000;
+  font-size: 11px;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
