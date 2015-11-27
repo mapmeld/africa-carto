@@ -4,8 +4,10 @@
 
 ### Creating a D3 Map
 
-I want to display the modern-day map of Africa in lots of different projections, so the best
-option today is to use D3.
+I want to display the modern-day map of Africa in a different, so the best option today is to use D3.
+
+According to Mike Bostock's entry on d3.geo, the <a href="http://bl.ocks.org/mbostock/3712408">Cylindrical Equal-Area</a>
+projection is the way to display the Gall-Peters projection (as seen in that scene from *The West Wing*).
 
 I already have a continents-except-Africa GeoJSON file, so I convert that into TopoJSON and load it
 into D3's example map.
@@ -13,9 +15,10 @@ into D3's example map.
 ```javascript
 // create the projection object
 var projection = d3.geo.cylindricalEqualArea()
+  .parallel(45)
   .scale(190)
   .translate([width / 2, height / 2])
-  .precision(.1);
+  .precision(0.1);
 
 // set the d3.geo.path object out here
 var path = d3.geo.path()
@@ -50,14 +53,19 @@ Here's what it looks like:
 
 <img src="http://mapmeld.github.io/africa-carto/maps/progress/political-projection.png"/>
 
-I chose a Cylindrial Equal-Area Projection (a generic version of Gall-Peters from the West Wing)
-because it shows relative size of countries. There are other reasons to object to this projection,
-but it ought to give us a clear answer on what differently-projected museum maps would look like.
-
 ### Adding Africa
 
-African countries will be re-added from <a href="https://github.com/johan/world.geo.json/">world.geo.json</a>, an open source project from Johan. I skipped QGIS and removed countries line-by-line from the GeoJSON file until only African countries were there. Worth noting here that Sao Tome and Principe, the Seychelles, and a few other islands get left out.
-They are labelled on the Brooklyn Museum map, so I'll need to bring them in later.
+African countries are re-added from <a href="https://github.com/johan/world.geo.json/">world.geo.json</a>, an open source project from Johan. I skipped QGIS and removed countries line-by-line from the GeoJSON file until only African countries were there.
+
+Worth noting here that Sao Tome and Principe, the Seychelles, and a few other islands are not in world.geo.json because they are too small, but they
+are labelled on the Brooklyn Museum map. The map also includes South Sudan, Somaliland, and Western Sahara. The Brooklyn Museum does not recognize Somaliland.
+
+The GeoJSON file is large enough that I'd like to reformat it as a smaller TopoJSON file. Run these commands:
+
+```bash
+npm install -g topojson
+topojson africa.geojson -p -o africa.topojson
+```
 
 Once I've loaded that in, I'll use a new CSS class to style it:
 
@@ -69,7 +77,7 @@ Once I've loaded that in, I'll use a new CSS class to style it:
 }
 ```
 
-It's tempting to have the borders be 1 pixel solid black, but it looks weird on maps.
+It's tempting to have the borders be black, but it looks weird on maps.
 
 Then I realign the initial projection so that it's centered and zoomed on Africa. Here's what we get:
 

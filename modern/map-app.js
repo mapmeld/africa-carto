@@ -1,11 +1,12 @@
 // use some code from D3 examples
-var width = 800,
+var width = 700,
   height = 800;
 
 var projection = d3.geo.cylindricalEqualArea()
-  .scale(470)
-  .translate([290, 340])
-  .precision(.1);
+  .parallel(45)
+  .scale(460)
+  .translate([290, 420])
+  .precision(0.1);
 
 var path = d3.geo.path()
   .projection(projection);
@@ -30,7 +31,7 @@ d3.json("data/africa.topojson", function(error, africa) {
   }
 
   svg.insert("path")
-    .datum(topojson.feature(africa, africa.objects.countries))
+    .datum(topojson.feature(africa, africa.objects.africa))
     .attr("class", "country")
     .attr("d", path);
 });
