@@ -41,7 +41,7 @@ Includes
 * GeoJSON / TopoJSON
 * Natural Earth Data
 
-### Colonial Map
+### Colonial Map (not started)
 
 <img src="http://mapmeld.github.io/africa-carto/maps/1.jpg"/>
 
