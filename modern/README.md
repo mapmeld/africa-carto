@@ -164,4 +164,8 @@ the GeoJSON file and re-ran the TopoJSON script.
 
 Sierra Leone is also written on one line by the Brookyln Museum map. I didn't see a need to do this.
 
+Now the labels look much better:
+
+<img src="http://mapmeld.github.io/africa-carto/maps/progress/political-labels-2.png"/>
+
 ### Adding Islands
