@@ -50,9 +50,9 @@ Includes
 Includes
 
 * OpenStreetMap
-* D3 geo
-* Projections
+* Mapzen Tangram
 * GeoJSON / TopoJSON
+* Natural Earth Data
 
 ## Open Source License
 
