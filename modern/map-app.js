@@ -2,13 +2,13 @@
 var width = 1400,
   height = 1600;
 
-var projection = d3.geo.cylindricalEqualArea()
+var projection = d3.geoCylindricalEqualArea()
   .parallel(45)
   .scale(900)
   .translate([580, 840])
   .precision(0.1);
 
-var path = d3.geo.path()
+var path = d3.geoPath()
   .projection(projection);
 
 var svg = d3.select("body").append("svg")

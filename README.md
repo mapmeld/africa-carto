@@ -36,8 +36,7 @@ Includes
 Includes
 
 * OpenStreetMap
-* D3 geo
-* Projections
+* D3 geo and projections
 * GeoJSON / TopoJSON
 * Natural Earth Data
 

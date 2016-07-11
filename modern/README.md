@@ -8,7 +8,8 @@
 
 I want to display the modern-day map of Africa in a different, so the best option today is to use D3.
 
-According to Mike Bostock's entry on d3.geo, the <a href="http://bl.ocks.org/mbostock/3712408">Cylindrical Equal-Area</a>
+According to Mike Bostock's entry on d3.geo, the
+<a href="http://bl.ocks.org/mbostock/3712408">Cylindrical Equal-Area</a>
 projection is the way to display the Gall-Peters projection (as seen in that scene from *The West Wing*).
 
 I already have a continents-except-Africa GeoJSON file, so I convert that into TopoJSON using this command:
@@ -22,14 +23,14 @@ Then I set up a D3 map with this initial framework:
 
 ```javascript
 // create the projection object
-var projection = d3.geo.cylindricalEqualArea()
+var projection = d3.geoCylindricalEqualArea()
   .parallel(45)
   .scale(190)
   .translate([width / 2, height / 2])
   .precision(0.1);
 
-// set the d3.geo.path object out here
-var path = d3.geo.path()
+// set the d3.geoPath object out here
+var path = d3.geoPath()
   .projection(projection);
 
 d3.json("data/world-continents.topojson", function(error, world) {
